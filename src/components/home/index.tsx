@@ -146,7 +146,7 @@ const Home: FC<any> = (): ReactElement => {
                         <Table sx={{ minWidth: 650 }} aria-label="simple table">
                             <TableHead>
                                 <TableRow>
-                                    <StyledTableCell> Nama Lengkap </StyledTableCell>
+                                    <StyledTableCell> Nama Lengkaps </StyledTableCell>
                                     <StyledTableCell> Tanggal Lahir </StyledTableCell>
                                     <StyledTableCell> Agama </StyledTableCell>
                                     <StyledTableCell> NIK </StyledTableCell>
