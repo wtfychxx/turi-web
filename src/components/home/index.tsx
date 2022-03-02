@@ -83,17 +83,28 @@ const Home: FC<any> = (): ReactElement => {
 
     const [open, setOpen] = useState(false)
     const [searchTerm, setSearchTerm] = useState('')
+    const [error, setError] = useState('')
+    const [isSearch, setIsSearch] = useState(false)
 
     const submitHandler = async(e: any) => {
         e.preventDefault()
 
         if(searchTerm !== ''){
-            const data = await getPersonByFamilyCard(searchTerm)
-            console.log(data)
-
-            if(data.code === 200){
-                setData(data.results)
+            if(!/[^0-9]/g.test(searchTerm)){
+                if(!isSearch){
+                    setIsSearch(true)
+                }
+                const data = await getPersonByFamilyCard(searchTerm)
+    
+                if(data.code === 200){
+                    setData(data.results)
+                    if(error !== '') setError('')
+                }
+            }else{
+                setError('Harap hanya masukan angka')
             }
+        }else{
+            setError('Data kartu keluarga harus dimasukan')
         }
     }
 
@@ -137,11 +148,15 @@ const Home: FC<any> = (): ReactElement => {
                         <Grid item xs={12} lg={2}>
                             <Button type="submit" variant="contained" sx={{ width: '100%', mt: 2, py: 2, fontSize: 16 }}> Cari </Button>
                         </Grid>
+
+                        <Grid item xs={12}>
+                            <Typography variant="h6" sx={{ color: 'red' }}>{error}</Typography>
+                        </Grid>
                     </Grid>
                 </Box>
 
                 {
-                    data.length > 0 ?
+                    isSearch ?
                     <TableContainer component={Paper} sx={{ mt: 2 }}>
                         <Table sx={{ minWidth: 650 }} aria-label="simple table">
                             <TableHead>
