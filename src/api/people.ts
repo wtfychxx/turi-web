@@ -1,7 +1,8 @@
 import axios from 'axios'
 
 // require('dotenv').config()
-const apiUrl = 'http://localhost:5010/api'
+// const apiUrl = 'http://localhost:5010/api'
+const apiUrl = 'https://turi.dynasis.web.id/api'
 
 export const getPersonByFamilyCard = async(searchText: string) => {
     try{
