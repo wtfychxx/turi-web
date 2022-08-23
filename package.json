@@ -7,6 +7,7 @@
   "author": "Spicy dynaxx",
   "description": "App for find turi people",
   "dependencies": {
+    "@electron-forge/cli": "^6.0.0-beta.63",
     "@emotion/react": "^11.8.1",
     "@emotion/styled": "^11.8.1",
     "@mui/icons-material": "^5.4.4",
@@ -57,7 +58,6 @@
     ]
   },
   "devDependencies": {
-    "@electron-forge/cli": "^6.0.0-beta.63",
     "@electron-forge/maker-deb": "^6.0.0-beta.63",
     "@electron-forge/maker-rpm": "^6.0.0-beta.63",
     "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
@@ -71,8 +71,8 @@
   "config": {
     "forge": {
       "packagerConfig": {
-          "name": "Turi finder",
-          "asar": true
+        "name": "Turi finder",
+        "asar": true
       },
       "makers": [
         {
